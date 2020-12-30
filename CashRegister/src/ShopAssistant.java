@@ -3,6 +3,7 @@ public class ShopAssistant {
     int id;
     String name;
     double hoursWorked, hourlyPay;
+    Shop shop;
 
     //Constructor
     public ShopAssistant(int id, String name){
@@ -64,5 +65,10 @@ public class ShopAssistant {
     //Getter for hourlyPay
     public double getHourlyPay(){
         return hourlyPay;
+    }
+
+    //Set shop to work in
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }
