@@ -19,15 +19,6 @@ public class ShopAssistant {
         }
     }
 
-    //Setter for id
-    public void setid(int id) {
-        if(id>0){
-            this.id = id;
-        }else{
-            throw new IllegalArgumentException("Cannot set ID to negative number.");
-        }
-    }
-
     //Getter for id
     public int getid(){
         return id;
