@@ -71,4 +71,32 @@ public class ShopAssistant {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+    //Calculate pay
+    public double calculatePay(){
+        return getHourlyPay() * getHoursWorked();
+    }
+
+    //Serve method
+    public void serve(Customer c){
+        c.getShoppingList();  //gets customer's shopping list
+        double bill = 0;  //creates a double to store the cost of their shopping
+
+        //Go through shopping list and check if shop has each
+        for(Product p : c.getShoppingList()){
+            if(shop.hasProduct(p)){
+                bill += p.getCost(p.getQuantity(), p.getT()); //add cost to bill
+            }
+            //Check if customer can pay the bill
+            if(c.canPay(bill)){
+                //remove quantity from shop
+                for(int i=0;i<p.getQuantity();i++){
+                    shop.soldProduct(p);
+                }
+
+                c.pay(bill);
+                shop.setRegister(bill + shop.getRegister()); //adds to register
+            }
+        }
+    }
 }

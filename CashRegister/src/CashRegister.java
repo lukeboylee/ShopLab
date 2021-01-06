@@ -28,7 +28,8 @@ public class CashRegister {
 
     //Getter for money
     public double getMoney(){
-        return money;
+
+        return Math.round(money*100) / 100;
     }
 
     //Override the toString method to get a sentence that is more useful to us
